@@ -11,6 +11,7 @@ class CarModelAdmin(admin.ModelAdmin):
     list_display = ('name', 'car_type', 'year')
     list_filter = ['car_type']
 
+
 class CarMakeAdmin(admin.ModelAdmin):
     inlines = [CarModelInline]
     list_display = ('name', 'description')

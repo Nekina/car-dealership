@@ -1,18 +1,24 @@
 from .models import CarMake, CarModel
 
+
 def initiate():
     car_make_data = [
-        {"name":"NISSAN", "description":"Great cars. Japanese technology", "year_est":1933},
-        {"name":"Mercedes", "description":"Great cars. German technology", "year_est":1926},
-        {"name":"Audi", "description":"Great cars. German technology", "year_est":1909},
-        {"name":"Kia", "description":"Great cars. Korean technology", "year_est":1944},
-        {"name":"Toyota", "description":"Great cars. Japanese technology", "year_est":1937},
+        {"name": "NISSAN", "description": "Great cars. Japanese technology", "year_est": 1933},
+        {"name": "Mercedes", "description": "Great cars. German technology", "year_est": 1926},
+        {"name": "Audi", "description": "Great cars. German technology", "year_est": 1909},
+        {"name": "Kia", "description": "Great cars. Korean technology", "year_est": 1944},
+        {"name": "Toyota", "description": "Great cars. Japanese technology", "year_est": 1937},
     ]
 
     car_make_instances = []
     for data in car_make_data:
-        car_make_instances.append(CarMake.objects.create(name=data['name'], description=data['description'], year_est=data['year_est']))
-
+        car_make_instances.append(
+            CarMake.objects.create(
+                name=data['name'],
+                description=data['description'],
+                year_est=data['year_est'],
+            )
+        )
 
     # Create CarModel instances with the corresponding CarMake instances
     car_model_data = [
@@ -53,4 +59,9 @@ def initiate():
     ]
 
     for data in car_model_data:
-        CarModel.objects.create(name=data['name'], car_make=data['car_make'], car_type=data['car_type'], year=data['year'])
+        CarModel.objects.create(
+            name=data['name'],
+            car_make=data['car_make'],
+            car_type=data['car_type'],
+            year=data['year'],
+        )
